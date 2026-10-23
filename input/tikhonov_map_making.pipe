@@ -1,0 +1,24 @@
+# -*- mode: python; -*-
+
+# input file for pipeline manager
+# execute this pipeline by either command of the following two:
+# dslpipe dir/to/input.pipe
+# mpiexec -n N dslpipe dir/to/input.pipe
+
+
+pipe_tasks = []
+pipe_outdir = './output/'
+pipe_logging = 'debug'
+pipe_timing = True
+pipe_flush = True
+
+
+from dslimager.tasks import tikhonov_map_making
+pipe_tasks.append(tikhonov_map_making.TikhonovMapMaking)
+### parameters for TikhonovMapMaking
+# mm_in = 'test_in'
+mm_input_files = '/tianlai/zuoshifan/workspace/DSL_linear_imaging/vis_sim_and_imaging/B_matrix_nside32.hdf5'
+mm_svd_file = '/tianlai/zuoshifan/workspace/DSL_linear_imaging/vis_sim_and_imaging/svd_components.hdf5'
+mm_eps = 3e-9
+mm_output_files = 'reconstructed_map_nside32.hdf5'
+mm_out = 'mm'

@@ -15,6 +15,7 @@ setup(
         'h5py',
         'caput',
         'matplotlib',
+        'healpy',
     ],
 
     # metadata for upload to PyPI
